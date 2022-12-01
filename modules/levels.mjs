@@ -1,4 +1,4 @@
-import { Square } from './enums.mjs';
+import { Square } from '/modules/enums.mjs';
 
 // Blueprint for the first level
 export const level1Blueprint = [[ Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall ],

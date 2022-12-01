@@ -1,6 +1,6 @@
-import { Square, CanMove, MoveDirection } from './enums.mjs'
-import { Position, copyPosition } from './position.mjs'
-import { ForegroundTile, BackgroundTile } from './tiles.mjs'
+import { Square, CanMove, MoveDirection } from '/modules/enums.mjs'
+import { Position, copyPosition } from '/modules/position.mjs'
+import { ForegroundTile, BackgroundTile } from '/modules/tiles.mjs'
 
 // define where the player can move
 // generate a level Object from a blueprint

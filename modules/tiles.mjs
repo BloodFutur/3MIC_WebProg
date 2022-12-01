@@ -1,5 +1,5 @@
-import { images } from './ressources.mjs';
-import { CanMove, Square } from './enums.mjs';
+import { images } from '/modules/ressources.mjs';
+import { CanMove, Square } from '/modules/enums.mjs';
 
 class Tile {
   constructor(x, y, width, height) {
