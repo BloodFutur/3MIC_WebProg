@@ -19,14 +19,16 @@ class Tile {
   draw(ctx) {
     if (this.imageReady) {
       ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    } else {
+      this.image.addEventListener('load', () => {
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        this.imageReady = true;
+      }, false);
     }
   }
 
   setImageSrc(src) {
     this.image.src = src;
-    this.image.addEventListener('load', () => {
-      this.imageReady = true;
-    }, false);
   }
 }
 
@@ -63,6 +65,11 @@ export class ForegroundTile extends Tile{
         this.canMove = CanMove.Maybe;
         break;
     }
+    if ( square == Square.BoxOnDestination || square == Square.Box ) {
+      this.isBox = true;
+    } else {
+      this.isBox = false;
+    }
   }
 }
 
@@ -72,24 +79,31 @@ export class BackgroundTile extends Tile{
     switch(square) {
       case Square.Wall:
         this.setImageSrc( images.wall );
+        this.isDestination = false;
         break;
       case Square.Floor:
         this.setImageSrc( images.floor );
+        this.isDestination = false;
         break;
       case Square.Player:
         this.setImageSrc( images.floor );
+        this.isDestination = false;
         break;
       case Square.Box:
         this.setImageSrc( images.floor );
+        this.isDestination = false;
         break;
       case Square.Destination:
         this.setImageSrc( images.destination );
+        this.isDestination = true;
         break;
       case Square.PlayerOnDestination:
         this.setImageSrc( images.destination );
+        this.isDestination = true;
         break;
       case Square.BoxOnDestination:
         this.setImageSrc( images.destination );
+        this.isDestination = true;
         break;
     }
     if (square === Square.Wall) {

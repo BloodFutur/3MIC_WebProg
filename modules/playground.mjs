@@ -68,10 +68,6 @@ export const generatePlayground = (levelBlueprint, canvasWidth, canvasHeight) =>
       let finishedChecking = false;
       let moveCount = 0;
       while (aux.isWithin({x: this.width, y: this.height}) && !finishedChecking) {
-        console.log("checking at position:");
-        console.log(aux);
-        console.log("answer");
-        console.log(this.canMove(aux));
         switch(this.canMove(aux)) {
           case CanMove.Yes:
             willMove = true;
@@ -87,21 +83,23 @@ export const generatePlayground = (levelBlueprint, canvasWidth, canvasHeight) =>
             break;
         }
       }
-      console.log(this.playerPos);
-      console.log("in playground.move");
       if (willMove) {
         this.playerPos.move(direction);
         let posOfObjectToMove = copyPosition(aux);
         for (let i = 0; i < moveCount; i++) {
           posOfObjectToMove.moveBackwards(direction);
-          console.log("I try to move");
           [this.foreground[aux.y][aux.x], this.foreground[posOfObjectToMove.y][posOfObjectToMove.x]] =
             [this.foreground[posOfObjectToMove.y][posOfObjectToMove.x], this.foreground[aux.y][aux.x]];
+          [this.foreground[aux.y][aux.x].x, this.foreground[posOfObjectToMove.y][posOfObjectToMove.x].x] =
+            [this.foreground[posOfObjectToMove.y][posOfObjectToMove.x].x, this.foreground[aux.y][aux.x].x];
+          [this.foreground[aux.y][aux.x].y, this.foreground[posOfObjectToMove.y][posOfObjectToMove.x].y] =
+            [this.foreground[posOfObjectToMove.y][posOfObjectToMove.x].y, this.foreground[aux.y][aux.x].y];
           aux.moveBackwards(direction);
         }
       }
     },
-    draw(ctx) {
+    draw(ctx, width, height) {
+      ctx.clearRect(0, 0, width, height);
       for (let row of this.background) {
         for (let tile of row) {
           tile.draw(ctx);
@@ -112,6 +110,18 @@ export const generatePlayground = (levelBlueprint, canvasWidth, canvasHeight) =>
           tile.draw(ctx);
         }
       }
+    },
+    isSolved() {
+      for (let y = 0; y < this.height; y++) {
+        for (let x = 0; x < this.width; x++) {
+          if ( this.background[y][x].isDestination ) {
+            if ( !this.foreground[y][x].isBox ) {
+              return false;
+            }
+          }
+        }
+      }
+      return true;
     }
   };
 }

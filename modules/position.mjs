@@ -1,3 +1,5 @@
+import { MoveDirection } from '/modules/enums.mjs'
+
 export class Position {
   constructor(x, y) {
     this.x = x;
