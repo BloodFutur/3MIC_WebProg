@@ -58,6 +58,7 @@ class Position {
     this.x = x;
     this.y = y;
   }
+
   move(direction) {
     switch (direction) {
       case MoveDirection.Right:
@@ -92,8 +93,16 @@ class Position {
   }
 
   isWithin(pos) {
-    return this.x < pos.x && this.y < pos.y
+    return this.x < pos.x && this.y < pos.y;
   }
+
+  isEqual(pos) {
+    return this.x === pos.x && this.y === pos.y;
+  }
+}
+
+const copyPosition = (pos) => {
+  return new Position(pos.x, pos.y);
 }
 
 class Tile {
@@ -233,17 +242,22 @@ const generatePlayground = (levelBlueprint, canvasWidth, canvasHeight) => {
     canMove(pos) {
       const foregroundAnswer = this.foreground[pos.y][pos.x].isMovable();
       const backgroundAnswer = this.background[pos.y][pos.x].isMovable();
-      if (backgroundAnswer === CanMove.No) {
+      if (backgroundAnswer == CanMove.No) {
         return CanMove.No;
       } else {
         return foregroundAnswer;
       }
     },
     move(direction) {
-      let aux = this.playerPos;
+      let aux = copyPosition(this.playerPos);
       let willMove = false;
       let finishedChecking = false;
+      let moveCount = 0;
       while (aux.isWithin({x: this.width, y: this.height}) && !finishedChecking) {
+        console.log("checking at position:");
+        console.log(aux);
+        console.log("answer");
+        console.log(this.canMove(aux));
         switch(this.canMove(aux)) {
           case CanMove.Yes:
             willMove = true;
@@ -255,13 +269,16 @@ const generatePlayground = (levelBlueprint, canvasWidth, canvasHeight) => {
             break;
           case CanMove.Maybe:
             aux.move(direction);
+            moveCount++;
             break;
         }
       }
+      console.log(this.playerPos);
+      console.log("in playground.move");
       if (willMove) {
-        console.log("in playground.move");
-        let posOfObjectToMove = aux;
-        while (aux != this.playerPos) {
+        this.playerPos.move(direction);
+        let posOfObjectToMove = copyPosition(aux);
+        for (let i = 0; i < moveCount; i++) {
           posOfObjectToMove.moveBackwards(direction);
           console.log("I try to move");
           [this.foreground[aux.y][aux.x], this.foreground[posOfObjectToMove.y][posOfObjectToMove.x]] =
