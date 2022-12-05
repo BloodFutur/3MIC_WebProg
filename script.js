@@ -5,7 +5,7 @@ import { MoveDirection } from '/modules/enums.mjs'
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 window.ctx = ctx
-let playground = generatePlayground(level2Blueprint, canvas.width, canvas.height);
+let playground = generatePlayground(level1Blueprint, canvas.width, canvas.height);
 window.addEventListener("keydown", (event) => {
   if (!event.defaultPrevented) {
     switch (event.key) {
