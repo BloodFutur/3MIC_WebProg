@@ -7,11 +7,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" href="./mario.png">
+        <link rel="icon" href="./res/mario.png"/>
         <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="./style.css"/>
 
     </head>
     <body>
+        <h1>Sokoban</h1>
         <!--[if lt IE 8]>
             <p class="browserupgrade">
             You are using an <strong>outdated</strong> browser. Please
@@ -19,7 +21,16 @@
             your experience.
             </p>
         <![endif]-->
-        <canvas id="canvas" width="800" height="400"></canvas>
+        <div class="to-center">
+            <canvas id="canvas" width="800" height="400"></canvas>
+            <div class="text-bubble">
+                <div class="dialog">
+                    <div class="left-point">
+                    </div>
+                    <p class="speech">Coucou</p>
+                </div>
+            </div>
+        </div>
     </body>
     <!-- <script type="module" src="./modules/ressources.mjs"></script> -->
     <script type="module" src="./script.js"></script>
