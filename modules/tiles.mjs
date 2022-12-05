@@ -1,12 +1,14 @@
 import { images } from '/modules/ressources.mjs';
 import { CanMove, Square } from '/modules/enums.mjs';
 
+
 class Tile {
+  static increaseInTileWidth = 1.005;
   constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
-    this.width = width;
-    this.height = height;
+    this.width = width * Tile.increaseInTileWidth;
+    this.height = height * Tile.increaseInTileWidth;
     this.canMove = CanMove.No;
     this.image = new Image();
     this.imageReady = false;
