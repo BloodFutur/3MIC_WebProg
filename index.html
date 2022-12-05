@@ -7,13 +7,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" href="./res/mario.png"/>
+        <link rel="icon" href="./res/player.png"/>
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="./style.css"/>
 
     </head>
     <body>
-        <h1>Sokoban</h1>
         <!--[if lt IE 8]>
             <p class="browserupgrade">
             You are using an <strong>outdated</strong> browser. Please
@@ -22,24 +21,31 @@
             </p>
         <![endif]-->
         <nav>
-            <ol id="level-list">
+            <h1>Sokoban</h1>
+            <ol id="level-lists">
             </ol>
         </nav>
-        <div id="timer">Time</div>
-        <button id="Pause" onclick="Pause()">Pause</button>
-        <br>
-        <div></div>
-        <canvas id="canvas" width="800" height="400"></canvas>
-        <div class="to-center">
-            <canvas id="canvas" width="800" height="400"></canvas>
-            <div class="text-bubble">
-                <div class="dialog">
-                    <div class="left-point">
+        <main>
+            <div class="controls">
+                <div id="timer">Time</div>
+                <button id="Pause" onclick="Pause()">Pause</button>
+                <br>
+            </div>
+            <div>
+                <canvas id="canvas" width="800" height="400"></canvas>
+                <div class="text-bubble">
+                    <div class="dialog">
+                        <div class="left-point">
+                        </div>
+                        <div class="left-point shifted">
+                        </div>
+                        <p class="speech">Coucou</p>
                     </div>
-                    <p class="speech">Coucou</p>
                 </div>
             </div>
-        </div>
+
+        </main>
+
     </body>
     <!-- <script type="module" src="./modules/ressources.mjs"></script> -->
     <script type="module" src="./script.js"></script>
