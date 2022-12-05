@@ -3,38 +3,44 @@ import { levelsBlueprint } from '/modules/levels.mjs'
 import { MoveDirection } from '/modules/enums.mjs'
 import { fillLevelsSelection } from '/modules/fillLevelsSelection.mjs'
 
-fillLevelsSelection();
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
+let gameState = {
+  playground: generatePlayground(levelsBlueprint[0], canvas.width, canvas.height),
+  width: canvas.width,
+  height: canvas.height,
+};
+
+fillLevelsSelection(gameState, ctx);
 window.ctx = ctx
 let playground = generatePlayground(levelsBlueprint[0], canvas.width, canvas.height);
 window.addEventListener("keydown", (event) => {
   if (!event.defaultPrevented) {
     switch (event.key) {
       case "ArrowDown":
-        playground.move(MoveDirection.Down);
+        gameState.playground.move(MoveDirection.Down);
         break;
       case "ArrowUp":
-        playground.move(MoveDirection.Up);
+        gameState.playground.move(MoveDirection.Up);
         break;
       case "ArrowRight":
-        playground.move(MoveDirection.Right);
+        gameState.playground.move(MoveDirection.Right);
         break;
       case "ArrowLeft":
-        playground.move(MoveDirection.Left);
+        gameState.playground.move(MoveDirection.Left);
         break;
       default:
         return;
         break;
     }
-    playground.draw(ctx, canvas.width, canvas.height);
-    if (playground.isSolved()) {
+    gameState.playground.draw(ctx, canvas.width, canvas.height);
+    if (gameState.playground.isSolved()) {
       alert("bravo");
     }
   }
 });
 
-window.playground = playground;
+window.playground = gameState.playground;
 window.up = MoveDirection.Up;
 window.down = MoveDirection.Down;
 window.left = MoveDirection.Left;
