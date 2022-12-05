@@ -1,6 +1,6 @@
 import { levelsBlueprint } from '/modules/levels.mjs'
 
-export const fillLevelSelection = () => {
+export const fillLevelsSelection = () => {
   let levelList = document.getElementById('level-list');
   for (let i = 0; i < levelsBlueprint.size; ++i) {
     let listElement = document.createElement("li");

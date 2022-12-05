@@ -1,9 +1,9 @@
 import { generatePlayground } from '/modules/playground.mjs'
-import {levelsBlueprint } from '/modules/levels.mjs'
+import { levelsBlueprint } from '/modules/levels.mjs'
 import { MoveDirection } from '/modules/enums.mjs'
 import { fillLevelsSelection } from '/modules/fillLevelsSelection.mjs'
 
-fillLevelSelection();
+fillLevelsSelection();
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 window.ctx = ctx
