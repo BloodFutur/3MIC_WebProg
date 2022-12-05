@@ -1,11 +1,13 @@
 import { generatePlayground } from '/modules/playground.mjs'
-import { level1Blueprint, level2Blueprint } from '/modules/levels.mjs'
+import {levelsBlueprint } from '/modules/levels.mjs'
 import { MoveDirection } from '/modules/enums.mjs'
+import { fillLevelsSelection } from '/modules/fillLevelsSelection.mjs'
 
+fillLevelSelection();
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 window.ctx = ctx
-let playground = generatePlayground(level1Blueprint, canvas.width, canvas.height);
+let playground = generatePlayground(levelsBlueprint[0], canvas.width, canvas.height);
 window.addEventListener("keydown", (event) => {
   if (!event.defaultPrevented) {
     switch (event.key) {
