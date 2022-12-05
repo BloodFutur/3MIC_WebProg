@@ -7,11 +7,7 @@ fillLevelSelection();
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 window.ctx = ctx
-<<<<<<< HEAD
 let playground = generatePlayground(levelsBlueprint[0], canvas.width, canvas.height);
-=======
-let playground = generatePlayground(level2Blueprint, canvas.width, canvas.height);
->>>>>>> 380cebd36dc4e3a1f3af185d1a7e3f0adb3e04d1
 window.addEventListener("keydown", (event) => {
   if (!event.defaultPrevented) {
     switch (event.key) {
