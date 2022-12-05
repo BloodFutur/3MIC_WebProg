@@ -1,5 +1,5 @@
 export const images = {
-  wall: '/res/wall.png',
+  wall: '/res/tree.png',
   floor: '/res/floor.png',
   player: '/res/player.png',
   box: '/res/box.png',
