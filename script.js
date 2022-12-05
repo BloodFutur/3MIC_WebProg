@@ -7,7 +7,11 @@ fillLevelSelection();
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 window.ctx = ctx
+<<<<<<< HEAD
 let playground = generatePlayground(levelsBlueprint[0], canvas.width, canvas.height);
+=======
+let playground = generatePlayground(level2Blueprint, canvas.width, canvas.height);
+>>>>>>> 380cebd36dc4e3a1f3af185d1a7e3f0adb3e04d1
 window.addEventListener("keydown", (event) => {
   if (!event.defaultPrevented) {
     switch (event.key) {
@@ -46,11 +50,39 @@ const sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//function qui met à jour le temps
+
+let time = 10;
+
+function timer(){
+  let txt = document.getElementById('timer');
+  let level = 0;
+  let afficher = "Time : " + time;
+  txt.innerHTML= afficher;
+  
+  time = time <= 0 ? 0 : time -1;
+  if (time == )
+  {
+  clearInterval(maVar);
+  }
+
+}
+ 
+let maVar = setInterval(timer, 1000);
+if (time == 0){
+  alert('Terminé YAsmine')
+}
+// while (document.readyState != "complete") {
+/*function set_time(){
+  minutes=Math.floor
+}*/
+
+function Pause(){
+  time = time -10;
+}
+
 // while (document.readyState != "complete") {
 setTimeout(1000);
-  // (new Promise((resolve) => {
-  //   setTimeout(resolve, 100)
-  // })).then(()=>{;})
-// }
+ 
 
 playground.draw(ctx);

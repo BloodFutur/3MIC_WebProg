@@ -1,14 +1,14 @@
 # Sokoban
 
-projet Web 3Mic 
+Projet Web 3Mic 
 
-pour ouvrir le projet, tapez la commande suivante dans un terminal:
+Pour ouvrir le projet, tapez la commande suivante dans un terminal:
 
 ``` sh
 npx serve
 ```
 
-si cela ne marche pas, essayez
+Si cela ne marche pas, essayez la commande suivante
 
 ``` sh
 python3 -m http.server
