@@ -29,6 +29,9 @@ class Tile {
 
   setImageSrc(src) {
     this.image.src = src;
+    this.image.addEventListener('load', () => {
+      this.imageReady = true;
+    }, false);
   }
 }
 

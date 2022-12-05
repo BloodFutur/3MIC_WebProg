@@ -40,8 +40,8 @@ export const generatePlayground = (levelBlueprint, canvasWidth, canvasHeight) =>
         default:
           break;
       }
-      foreground[indexRow].push(new ForegroundTile(square, indexColumn * tileWidth, indexRow * tileHeight, tileWidth, tileHeight));
       background[indexRow].push(new BackgroundTile(square, indexColumn * tileWidth, indexRow * tileHeight, tileWidth, tileHeight));
+      foreground[indexRow].push(new ForegroundTile(square, indexColumn * tileWidth, indexRow * tileHeight, tileWidth, tileHeight));
     });
   });
   if (boxCount != destinationCount) {
