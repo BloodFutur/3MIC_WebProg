@@ -44,11 +44,39 @@ const sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//function qui met à jour le temps
+
+let time = 10;
+
+function timer(){
+  let txt = document.getElementById('timer');
+  let level = 0;
+  let afficher = "Time : " + time;
+  txt.innerHTML= afficher;
+  
+  time = time <= 0 ? 0 : time -1;
+  if (time == -1)
+  {
+  clearInterval(maVar);
+  }
+
+}
+ 
+let maVar = setInterval(timer, 1000);
+if (time == 0){
+  alert('Terminé YAsmine')
+}
+// while (document.readyState != "complete") {
+/*function set_time(){
+  minutes=Math.floor
+}*/
+
+function Pause(){
+  time = time -10;
+}
+
 // while (document.readyState != "complete") {
 setTimeout(1000);
-  // (new Promise((resolve) => {
-  //   setTimeout(resolve, 100)
-  // })).then(()=>{;})
-// }
+ 
 
 playground.draw(ctx);
