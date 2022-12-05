@@ -25,9 +25,9 @@ body {
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
     border-top: 5rem solid var(--main-invert-color);
-    position: relative;
-    top: 45%;
-    left: -10%;
+    position: absolute;
+    margin-top: 30%;
+    margin-left: -10%;
     transform: rotate(60deg) ;
     z-index: -1;
 }
