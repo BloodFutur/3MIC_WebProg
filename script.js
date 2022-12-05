@@ -55,7 +55,7 @@ function timer(){
   txt.innerHTML= afficher;
   
   time = time <= 0 ? 0 : time -1;
-  if (time == )
+  if (time == 0)
   {
   clearInterval(maVar);
   }
