@@ -1,7 +1,7 @@
 import { generatePlayground } from '/modules/playground.mjs'
 import { levelsBlueprint } from '/modules/levels.mjs'
 import { MoveDirection } from '/modules/enums.mjs'
-import { fillLevelsSelection } from '/modules/fillLevelsSelection.mjs'
+import { fillLevelsSelection, selectLevel } from '/modules/levelSelection.mjs'
 import { Timer } from '/modules/timer.mjs'
 import { TutorialControler } from '/modules/tutorialControler.mjs'
 
@@ -15,6 +15,7 @@ let gameState = {
     alert("Les vaches mangent le foin");
   }),
   playable: false,
+  levelId: 0,
 };
 
 let tutorial = new TutorialControler();
@@ -43,7 +44,8 @@ window.addEventListener("keydown", (event) => {
       }
       gameState.playground.draw(ctx, canvas.width, canvas.height);
       if (gameState.playground.isSolved()) {
-        alert("bravo");
+        gameState.levelId++;
+        selectLevel(ctx, gameState, gameState.levelId);
       }
     } else {
       tutorial.next();
