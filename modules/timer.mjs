@@ -1,6 +1,7 @@
 export class Timer {
   constructor(time, expireFunction) {
     self.time = time;
+    self.expireFunction = expireFunction;
     self.timerElement = document.getElementById('timer');
     self.pauseButton1 = document.getElementById('pause-1');
     self.pauseButton2 = document.getElementById('pause-2');
@@ -34,7 +35,7 @@ export class Timer {
         let timeStr = String(self.time).padStart(5, '0');
         self.timerElement.innerHTML = "Time : " + timeStr.slice(0, 3) + '.' + timeStr.slice(3);
         if (self.time == 0) {
-          expireFunction();
+          self.expireFunction();
           clearInterval(self.intervalControler);
           self.timeRunning = false;
         }
