@@ -61,6 +61,7 @@ main {
 .speech {
     z-index: 3;
     margin: auto;
+    padding: 30px;
     position: relative;
     text-align: justify;
 }

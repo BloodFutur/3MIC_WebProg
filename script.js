@@ -6,6 +6,16 @@ import { Timer } from '/modules/timer.mjs'
 import { TutorialControler } from '/modules/tutorialControler.mjs'
 
 let canvas = document.getElementById('canvas');
+let difficultySlider = document.getElementById('difficulty-slider');
+let mouseOnCanvas = false;
+canvas.addEventListener("mouseenter",() => {
+  mouseOnCanvas = true;
+  difficultySlider.disabled = true;
+});
+canvas.addEventListener("mouseleave",() => {
+  mouseOnCanvas = false;
+  difficultySlider.disabled = false;
+});
 let ctx = canvas.getContext('2d');
 let gameState = {
   playground: generatePlayground(levelsBlueprint[0].structure, canvas.width, canvas.height),
@@ -23,7 +33,7 @@ let tutorial = new TutorialControler();
 fillLevelsSelection(gameState, ctx);
 window.ctx = ctx
 window.addEventListener("keydown", (event) => {
-  if (!event.defaultPrevented) {
+  if (!event.defaultPrevented && mouseOnCanvas) {
     if (gameState.playable) {
       switch (event.key) {
         case "ArrowDown":
@@ -49,7 +59,10 @@ window.addEventListener("keydown", (event) => {
       }
     } else {
       tutorial.next();
-      gameState.playable = tutorial.isFinished();
+      if (tutorial.isFinished()) {
+        gameState.playable = true;
+        gameState.timer.start();
+      }
     }
   }
 });

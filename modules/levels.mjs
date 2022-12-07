@@ -6,7 +6,7 @@ const level1Blueprint = {
   structure:[[ Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall ],
             [ Square.Wall, Square.Destination, Square.Box, Square.Floor, Square.Player, Square.Wall ],
             [ Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall ]],
-  time: 3000,
+  time: 1000,
 };
 // Blueprint for the second level
 const level2Blueprint = {

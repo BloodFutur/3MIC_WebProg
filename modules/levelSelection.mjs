@@ -5,9 +5,8 @@ import { Timer } from '/modules/timer.mjs'
 export const selectLevel = (ctx, gameState, id) => {
   gameState.playground = generatePlayground(levelsBlueprint[id].structure, gameState.width, gameState.height);
   // TODO transfer expireFunction without a fail
-  const expireFunc = gameState.timer.expireFunction;
-  console.log(expireFunc);
-  gameState.timer = new Timer(levelsBlueprint[id].time, gameState.timer.expireFunction);
+  // const expireFunc = () => {gameState.timer.expireFunction();};
+  gameState.timer.setTime(levelsBlueprint[id].time);
   gameState.playground.draw(ctx, gameState.width, gameState.height);
 }
 
