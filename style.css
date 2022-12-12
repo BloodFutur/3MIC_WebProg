@@ -29,7 +29,7 @@ main {
 aside {
     margin: 0 auto;
     float: left;
-    width: 10rem;
+    width: 20rem;
     justify-content: space-between;
     flex-direction: column;
   }
@@ -71,6 +71,29 @@ footer {
 
 footer p:last-child {
     font-weight: bolder;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	width:100%;
+}
+
+thead {
+	width:100%;
+	background:#000;
+	padding:(12px * 1.5) 0;
+    color:wheat;
+}
+
+tr {
+    text-align: center;
+	width:100%;
+	padding:(12px * 1.5) 0;
+}
+
+tr:nth-of-type(even) {
+    background:lightgray;
 }
 
 .text-bubble {
