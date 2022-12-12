@@ -60,10 +60,18 @@ window.addEventListener("keydown", (event) => {
         gameState.levelManager.next(ctx, gameState);
       }
     } else {
-      tutorial.next();
-      if (tutorial.isFinished()) {
-        gameState.playable = true;
-        gameState.timer.start();
+      switch (event.key) {
+        case "ArrowRight":
+        case " ":
+        case "Enter":
+            tutorial.next();
+            if (tutorial.isFinished()) {
+              gameState.playable = true;
+              gameState.timer.start();
+            }
+          break;
+        default:
+          break;
       }
     }
   }
