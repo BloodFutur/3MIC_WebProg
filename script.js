@@ -31,9 +31,8 @@ let gameState = {
     gameState.timer.stop();
   } ),
   levelId: 0,
+  tutorial: new TutorialControler(),
 };
-
-let tutorial = new TutorialControler();
 
 fillLevelsSelection(gameState, ctx);
 window.ctx = ctx
@@ -66,11 +65,11 @@ window.addEventListener("keydown", (event) => {
         case "ArrowRight":
         case " ":
         case "Enter":
-            tutorial.next();
-            if (tutorial.isFinished()) {
-              gameState.playable = true;
-              gameState.timer.start();
-            }
+          gameState.tutorial.next();
+          if (gameState.tutorial.isFinished()) {
+            gameState.playable = true;
+            gameState.timer.start();
+          }
           break;
         default:
           break;

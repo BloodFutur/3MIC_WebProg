@@ -66,7 +66,7 @@ const level5Blueprint = {
     [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Floor, Square.Box, Square.Floor, Square.Wall, Square.Floor, Square.Wall, Square.Wall, Square.Wall, ],
     [Square.Wall, Square.Destination, Square.Destination, Square.Destination, Square.Destination, Square.Floor, Square.Floor, Square.Wall, Square.Wall, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Wall, ],
     [Square.Wall, Square.Wall, Square.Destination, Square.Destination, Square.Destination, Square.Floor, Square.Floor, Square.Floor, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Floor, Square.Wall, ],
-    [Square.Wall, Square.Destination, Square.Destination, Square.Destination, Square.Floor, Square.Floor, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Destination, Square.Destination, Square.Destination, Square.Destination, Square.Floor, Square.Floor, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, ],
     [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, ],
   ],
   time: 40000

@@ -11,14 +11,21 @@ export class TutorialControler {
     self.messageBox = document.getElementById('tutorial-box');
     self.messageId = 0;
     self.messageBox.innerHTML = TutorialControler.messages[self.messageId];
+    self.hide = () => {
+      document.getElementById('tutorial-speech-bubble').style.visibility = "hidden";
+      self.finished = true;
+    }
+  }
+
+  hide() {
+    self.hide();
   }
 
   next() {
     if (!self.finished) {
       self.messageId++;
       if (self.messageId == TutorialControler.messages.length) {
-        document.getElementById('tutorial-speech-bubble').style.visibility = "hidden";
-        self.finished = true;
+        self.hide();
       } else {
         self.messageBox.innerHTML = TutorialControler.messages[self.messageId];
       }
@@ -28,4 +35,5 @@ export class TutorialControler {
   isFinished() {
     return self.finished;
   }
+
 }
