@@ -9,12 +9,38 @@ body {
     color: --main-invert-color;
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1rem 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: yellowgreen;
+    padding: 0 20%;
+}
+
+nav ol {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+}
+
+nav ol li {
+    margin: auto 1rem;
+}
+
+nav ol li button {
+    background-color: transparent;
+    padding: 0.5rem;
+    font-size: large;
 }
 
 .text-bubble {
