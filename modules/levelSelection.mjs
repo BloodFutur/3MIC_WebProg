@@ -2,10 +2,9 @@ import { levelsBlueprint } from '/modules/levels.mjs'
 import { generatePlayground } from '/modules/playground.mjs'
 import { Timer } from '/modules/timer.mjs'
 
+const prionicSequence = [0, 2, 6, 12, 20, 30, 42];
+
 export const selectLevel = (ctx, gameState, id) => {
-  console.log(ctx);
-  console.log(gameState);
-  console.log(id);
   gameState.playground = generatePlayground(levelsBlueprint[id].structure, gameState.width, gameState.height);
   // TODO transfer expireFunction without a fail
   // const expireFunc = () => {gameState.timer.expireFunction();};
@@ -22,7 +21,7 @@ export const fillLevelsSelection = (gameState, ctx) => {
     selectionButton.addEventListener("click", (click) => {
       selectLevel(ctx, gameState, click.srcElement.getAttribute("array-index"));
     });
-    selectionButton.innerText = "Level " + i;
+    selectionButton.innerText = "Level " + prionicSequence[i];
     listElement.appendChild(selectionButton);
     levelList.appendChild(listElement);
   }
@@ -35,17 +34,23 @@ export class LevelManager {
     self.winFunction = winFunction;
   }
 
+  getFirstUncompleted() {
+    for( let i = 0; i < self.Completed.size; i++ ) {
+      if (!self.Completed[i]) {
+        return i;
+      }
+    }
+  }
+
   next(ctx, gameState) {
     self.Completed[self.CurrentLevelId] = true;
-    console.log(self.Completed);
     let allLevelsFinished = self.Completed.reduce((a, b) => {
       return a && b;
     }, true);
-    console.log(allLevelsFinished);
     if (allLevelsFinished) {
       self.winFunction();
     }
-    self.CurrentLevelId++;
+    self.CurrentLevelId = getFirstUncompleted();
     selectLevel(ctx, gameState, self.CurrentLevelId);
   }
 }
