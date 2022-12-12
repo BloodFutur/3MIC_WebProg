@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    min-height: 100vh;
 }
 
 main {
@@ -41,6 +42,21 @@ nav ol li button {
     background-color: transparent;
     padding: 0.5rem;
     font-size: large;
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position:fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: yellowgreen;
+}
+
+footer p:last-child {
+    font-weight: bolder;
 }
 
 .text-bubble {
