@@ -22,7 +22,7 @@ main {
 
 nav {
     display: flex;
-    width: 100%;
+    /*width: 100%; */
     background-color: yellowgreen;
     padding: 0 20%;
 }
