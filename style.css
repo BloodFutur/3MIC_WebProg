@@ -63,14 +63,14 @@ footer p:last-child {
     /* transform: rotate(90deg); */
     position: relative;
     margin: auto;
-    margin-left: 658px;
-    margin-top: -385px;
+    margin-left: 185px;
+    margin-top: -395px;
     z-index: 2;
 }
 
 .dialog {
-    height: 200px;
-    width: 400px;
+    height: 150px;
+    width: 350px;
     background-color: var(--main-background-color);
     position: relative;
     border-radius: 10%;
@@ -79,7 +79,7 @@ footer p:last-child {
     border: 1px solid black;
 }
 
-.left-point {
+.right-point {
     width: 0;
     height: 0;
     border-left: 1rem solid transparent;
@@ -87,17 +87,16 @@ footer p:last-child {
     border-top: 5rem solid black;
     position: absolute;
     margin-top: 30%;
-    margin-left: -10%;
-    transform: rotate(60deg) ;
+    margin-left: 100%;
+    transform: rotate(-60deg) ;
     z-index: -1;
 }
 
 .shifted {
-    transform:rotate(60deg)  translate(0px,-2px);
+    transform:rotate(-60deg)  translate(0px,-2px);
     border-top: 5rem solid white;
     z-index: 4;
 }
-
 
 
 .speech {
