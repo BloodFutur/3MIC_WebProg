@@ -1,7 +1,7 @@
 import { generatePlayground } from '/modules/playground.mjs'
 import { levelsBlueprint } from '/modules/levels.mjs'
 import { MoveDirection } from '/modules/enums.mjs'
-import { fillLevelsSelection, selectLevel } from '/modules/levelSelection.mjs'
+import { fillLevelsSelection, selectLevel, LevelManager } from '/modules/levelSelection.mjs'
 import { Timer } from '/modules/timer.mjs'
 import { TutorialControler } from '/modules/tutorialControler.mjs'
 
@@ -25,6 +25,9 @@ let gameState = {
     alert("Les vaches mangent le foin");
   }),
   playable: false,
+  levelManager: new LevelManager( () => {
+    alert("Toutes les bottes sont rangées");
+  } ),
   levelId: 0,
 };
 
@@ -54,8 +57,7 @@ window.addEventListener("keydown", (event) => {
       }
       gameState.playground.draw(ctx, canvas.width, canvas.height);
       if (gameState.playground.isSolved()) {
-        gameState.levelId++;
-        selectLevel(ctx, gameState, gameState.levelId);
+        gameState.levelManager.next(ctx, gameState);
       }
     } else {
       tutorial.next();

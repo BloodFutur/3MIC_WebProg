@@ -42,6 +42,6 @@ const level3Blueprint = {
 
 export const levelsBlueprint = [
   level1Blueprint,
-  level2Blueprint,
-  level3Blueprint,
+  // level2Blueprint,
+  // level3Blueprint,
 ]

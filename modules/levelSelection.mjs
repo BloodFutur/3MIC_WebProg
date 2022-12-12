@@ -3,6 +3,9 @@ import { generatePlayground } from '/modules/playground.mjs'
 import { Timer } from '/modules/timer.mjs'
 
 export const selectLevel = (ctx, gameState, id) => {
+  console.log(ctx);
+  console.log(gameState);
+  console.log(id);
   gameState.playground = generatePlayground(levelsBlueprint[id].structure, gameState.width, gameState.height);
   // TODO transfer expireFunction without a fail
   // const expireFunc = () => {gameState.timer.expireFunction();};
@@ -19,19 +22,30 @@ export const fillLevelsSelection = (gameState, ctx) => {
     selectionButton.addEventListener("click", (click) => {
       selectLevel(ctx, gameState, click.srcElement.getAttribute("array-index"));
     });
-    selectionButton.innerText = "Level" + i;
+    selectionButton.innerText = "Level " + i;
     listElement.appendChild(selectionButton);
     levelList.appendChild(listElement);
   }
 }
 
-export class LevelManager (
-  constructor(StartingLevelId = 0) {
+export class LevelManager {
+  constructor(winFunction, StartingLevelId = 0) {
     self.CurrentLevelId = StartingLevelId;
+    self.Completed = levelsBlueprint.map(() => { return false; });
+    self.winFunction = winFunction;
   }
 
   next(ctx, gameState) {
+    self.Completed[self.CurrentLevelId] = true;
+    console.log(self.Completed);
+    let allLevelsFinished = self.Completed.reduce((a, b) => {
+      return a && b;
+    }, true);
+    console.log(allLevelsFinished);
+    if (allLevelsFinished) {
+      self.winFunction();
+    }
     self.CurrentLevelId++;
     selectLevel(ctx, gameState, self.CurrentLevelId);
   }
-)
+}
