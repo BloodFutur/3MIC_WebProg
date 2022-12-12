@@ -3,6 +3,6 @@ export const images = {
   floor: '/res/floor.png',
   player: '/res/player.png',
   box: '/res/box.png',
-  destination: '/res/destination.png',
+  destination: '/res/destination_vache.png',
   empty: '/res/empty.png',
 };
