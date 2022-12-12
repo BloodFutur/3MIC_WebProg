@@ -27,6 +27,7 @@ let gameState = {
   playable: false,
   levelManager: new LevelManager( () => {
     alert("Toutes les bottes sont rangées");
+    gameState.timer.stop();
   } ),
   levelId: 0,
 };
