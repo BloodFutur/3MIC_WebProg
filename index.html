@@ -22,32 +22,63 @@
         <![endif]-->
         <nav>
             <h1>Sokoban</h1>
-            <ol id="level-list">
+            <ol id="level-list" class="not-in-win-animation">
             </ol>
         </nav>
-        <main>
-            <div class="controls">
+        <div class="container">
+            <aside class="left-sidebar">
+                <table border="1">
+                    <thead>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </thead>
+   
+                    <tbody id="scoreTable">
+                        <tr>
+                            <td>
+                                Axel
+                            </td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ronan
+                            </td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
+            <main>
+                <article class="not-in-win-animation">
+                    <canvas id="canvas" width="800" height="400"></canvas>
+                    <div id="tutorial-speech-bubble" class="text-bubble">
+                        <div class="dialog">
+                            <p id="tutorial-box" class="speech"></p>
+                            <div class="right-point">
+                            </div>
+                            <div class="right-point shifted">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+    
+            </main>
+            <aside class="controls not-in-win-animation right-sidebar">
                 <div id="timer">Time</div>
                 <button id="pause-1">Pause</button>
                 <button id="pause-2">Pause</button><br/>
                 <label for="dificulty-slider">Difficulty</label><br/>
                 <input type="range" min="0" max="100" value="50" id="difficulty-slider">
                 <br/>
-            </div>
-            <div>
-                <canvas id="canvas" width="800" height="400"></canvas>
-                <div id="tutorial-speech-bubble" class="text-bubble">
-                    <div class="dialog">
-                        <div class="left-point">
-                        </div>
-                        <div class="left-point shifted">
-                        </div>
-                        <p id="tutorial-box" class="speech"></p>
-                    </div>
-                </div>
-            </div>
+            </aside>
+        </div>
 
-        </main>
+
+        <footer>
+            <p>Sokoban 2022</p>
+            <p>Pour une meilleure expérience, veuillez utiliser ce jeu sur un ordinateur avec un écran horizontal.</p>
+        </footer>
 
     </body>
     <!-- <script type="module" src="./modules/ressources.mjs"></script> -->

@@ -17,3 +17,10 @@
 
     * Prompt for username after ending
     * Table with filled usernames
+
+## Insectes
+
+    * Error when last level is successfully finished
+    * Size of the canvas: tiles not squared with some levels
+    * Timer does not stop on win
+    * Le tracteur devient John Cena
