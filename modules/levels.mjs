@@ -25,7 +25,23 @@ const level2Blueprint = {
   time: 23000,
 };
 
+const level3Blueprint = {
+  structure: [
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall,],
+    [Square.Wall, Square.Floor, Square.Floor, Square.Floor, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall,],
+    [Square.Wall, Square.Floor, Square.Box, Square.Floor, Square.Destination, Square.Destination, Square.Destination, Square.Wall, Square.Wall, Square.Wall,],
+    [Square.Wall, Square.Wall, Square.Destination, Square.Box, Square.Box, Square.Destination, Square.Floor, Square.Floor, Square.Wall, Square.Wall,],
+    [Square.Wall, Square.Wall, Square.Destination, Square.Destination, Square.Floor, Square.Box, Square.Box, Square.Floor, Square.Wall, Square.Wall,],
+    [Square.Wall, Square.Wall, Square.Destination, Square.Box, Square.Box, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Floor],
+    [Square.Wall, Square.Wall, Square.Player, Square.Destination, Square.Destination, Square.Box, Square.Box, Square.Floor, Square.Floor, Square.Wall,],
+    [Square.Wall, Square.Wall, Square.Floor, Square.Floor, Square.Floor, Square.Floor, Square.Floor, Square.Wall, Square.Wall, Square.Wall,],
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall,],
+  ],
+  time: 8000,
+}
+
 export const levelsBlueprint = [
   level1Blueprint,
-  level2Blueprint,
+  // level2Blueprint,
+  // level3Blueprint,
 ]
