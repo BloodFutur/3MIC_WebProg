@@ -11,6 +11,7 @@ export const selectLevel = (ctx, gameState, id) => {
   gameState.timer.setTime(levelsBlueprint[id].time);
   gameState.playable = true;
   gameState.tutorial.hide();
+  gameState.timer.start();
   gameState.playground.draw(ctx, gameState.width, gameState.height);
 }
 
@@ -34,15 +35,19 @@ export class LevelManager {
     self.CurrentLevelId = StartingLevelId;
     self.Completed = levelsBlueprint.map(() => { return false; });
     self.winFunction = winFunction;
+    self.getFirstUncompleted = () => {
+      for( let i = 0; i < self.Completed.length; i++ ) {
+        if (!self.Completed[i]) {
+          return i;
+        }
+      }
+      return -1;
+    };
   }
 
-  getFirstUncompleted() {
-    for( let i = 0; i < self.Completed.size; i++ ) {
-      if (!self.Completed[i]) {
-        return i;
-      }
-    }
-  }
+  // getFirstUncompleted() {
+  //   self.getFirstUncompleted();
+  // }
 
   next(ctx, gameState) {
     self.Completed[self.CurrentLevelId] = true;
@@ -52,7 +57,8 @@ export class LevelManager {
     if (allLevelsFinished) {
       self.winFunction();
     }
-    self.CurrentLevelId = getFirstUncompleted();
+    self.CurrentLevelId = self.getFirstUncompleted();
+    console.log(self.CurrentLevelId);
     selectLevel(ctx, gameState, self.CurrentLevelId);
   }
 }
