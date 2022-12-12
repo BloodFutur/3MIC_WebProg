@@ -56,9 +56,26 @@ const level4Blueprint = {
   time: 3000,
 }
 
+const level5Blueprint = {
+  structure: [
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Floor, Square.Floor, Square.Floor, Square.Floor, Square.Floor, Square.Player, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Floor, Square.Box, Square.Wall, Square.Box, Square.Floor, Square.Wall, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Box, Square.Wall, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Box, Square.Floor, Square.Box, Square.Floor, Square.Wall, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Floor, Square.Box, Square.Floor, Square.Wall, Square.Floor, Square.Wall, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Destination, Square.Destination, Square.Destination, Square.Destination, Square.Floor, Square.Floor, Square.Wall, Square.Wall, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Wall, ],
+    [Square.Wall, Square.Wall, Square.Destination, Square.Destination, Square.Destination, Square.Floor, Square.Floor, Square.Floor, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Box, Square.Floor, Square.Floor, Square.Floor, Square.Wall, ],
+    [Square.Wall, Square.Destination, Square.Destination, Square.Destination, Square.Floor, Square.Floor, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, ],
+    [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, ],
+  ],
+  time: 40000
+}
+
 export const levelsBlueprint = [
   level1Blueprint,
   level2Blueprint,
   level3Blueprint,
   level4Blueprint,
+  level5Blueprint,
 ];
