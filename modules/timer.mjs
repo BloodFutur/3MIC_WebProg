@@ -37,7 +37,7 @@ export class Timer {
     self.pauseButton2.addEventListener("click", () => {
       alert("All this effort for nothing");
     });
-    self.pauseButton1.addEventListener("cilck", () => {
+    self.pauseButton1.addEventListener("click", () => {
       alert("All this effort for nothing");
     });
     self.timeRunning = false;
