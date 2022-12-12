@@ -80,5 +80,6 @@ window.addEventListener("keydown", (event) => {
 
 //let table = document.getElementById("scoreTable");
 Scoreboard();
+window.gamestate = gameState;
 gameState.playground.draw(ctx);
 
