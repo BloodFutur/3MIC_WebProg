@@ -2,8 +2,6 @@ export class Timer {
   readDifficulty(slider) {
     self.difficulty = 1.5 - slider.value * 0.01;
     self.time = self.originalTime * self.difficulty;
-    console.log("difficulty: " + self.difficulty);
-    console.log("time: " + self.time);
   }
 
   constructor(time, expireFunction) {
@@ -48,8 +46,8 @@ export class Timer {
       if (self.timeRunning) {
         let timeStr = String(self.time).padStart(5, '0');
         self.timerElement.innerHTML = "Time : " + timeStr.slice(0, 3) + '.' + timeStr.slice(3);
-        if (self.time == 0) {
-          this.expireFunction();
+        if (self.time <= 0) {
+          self.expireFunction();
           clearInterval(self.intervalControler);
           self.timeRunning = false;
         }

@@ -18,15 +18,20 @@ export const fillLevelsSelection = (gameState, ctx) => {
     selectionButton.setAttribute("array-index", i);
     selectionButton.addEventListener("click", (click) => {
       selectLevel(ctx, gameState, click.srcElement.getAttribute("array-index"));
-      // let blueprint = levelsBlueprint[
-      //   click.srcElement.getAttribute("array-index")
-      // ];
-      // gameState.playground = generatePlayground(blueprint.structure, gameState.width, gameState.height);
-      // gameState.timer = new Timer(blueprint.time, gameState.timer.expireFunction);
-      // gameState.playground.draw(ctx, gameState.width, gameState.height);
     });
     selectionButton.innerText = "Level" + i;
     listElement.appendChild(selectionButton);
     levelList.appendChild(listElement);
   }
 }
+
+export class LevelManager (
+  constructor(StartingLevelId = 0) {
+    self.CurrentLevelId = StartingLevelId;
+  }
+
+  next(ctx, gameState) {
+    self.CurrentLevelId++;
+    selectLevel(ctx, gameState, self.CurrentLevelId);
+  }
+)

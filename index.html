@@ -22,11 +22,11 @@
         <![endif]-->
         <nav>
             <h1>Sokoban</h1>
-            <ol id="level-list">
+            <ol id="level-list" class="not-in-win-animation">
             </ol>
         </nav>
         <main>
-            <div class="controls">
+            <div class="controls not-in-win-animation">
                 <div id="timer">Time</div>
                 <button id="pause-1">Pause</button>
                 <button id="pause-2">Pause</button><br/>
@@ -34,7 +34,7 @@
                 <input type="range" min="0" max="100" value="50" id="difficulty-slider">
                 <br/>
             </div>
-            <div>
+            <div class="not-in-win-animation">
                 <canvas id="canvas" width="800" height="400"></canvas>
                 <div id="tutorial-speech-bubble" class="text-bubble">
                     <div class="dialog">
