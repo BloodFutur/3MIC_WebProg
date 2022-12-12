@@ -9,6 +9,8 @@ export const selectLevel = (ctx, gameState, id) => {
   // TODO transfer expireFunction without a fail
   // const expireFunc = () => {gameState.timer.expireFunction();};
   gameState.timer.setTime(levelsBlueprint[id].time);
+  gameState.playable = true;
+  gameState.tutorial.hide();
   gameState.playground.draw(ctx, gameState.width, gameState.height);
 }
 
