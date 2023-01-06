@@ -49,7 +49,12 @@ export class LevelManager {
   //   self.getFirstUncompleted();
   // }
 
+  // This function is called when the player completes a level
+  // It checks if all levels are completed and calls the winFunction
+  // If not, it selects the next level
   next(ctx, gameState) {
+    let score = gameState.timer.getTime();
+    gameState.scoreboard.updateScoreCurrentGamer(score);
     self.Completed[self.CurrentLevelId] = true;
     let allLevelsFinished = self.Completed.reduce((a, b) => {
       return a && b;

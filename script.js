@@ -31,6 +31,7 @@ let gameState = {
     gameState.timer.stop();
   } ),
   levelId: 0,
+  scoreboard: new Scoreboard(),
   tutorial: new TutorialControler(),
 };
 
@@ -82,7 +83,6 @@ window.addEventListener("keydown", (event) => {
 // let joueur = new Gamer("user", 0);
 // joueur.Scoreboard();
 
-let scoreboard = new Scoreboard();
 let inputName = document.getElementById("name");
 inputName.addEventListener("input", (event) => { 
   console.log(event.target.value);
@@ -92,7 +92,7 @@ inputName.addEventListener("input", (event) => {
 let submitButton = document.getElementById("submit-name");
 submitButton.addEventListener("click", () => {
   let value = inputName.value;
-  scoreboard.updatedName(value);
+  gamestate.scoreboard.updatedName(value);
 });
 
 window.gamestate = gameState;

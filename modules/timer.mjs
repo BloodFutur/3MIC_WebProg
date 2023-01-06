@@ -60,6 +60,10 @@ export class Timer {
     self.time = time;
   }
 
+  getTime() {
+    return self.time;
+  }
+
   start() {
     self.timeRunning = true;
   }
