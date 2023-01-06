@@ -7,7 +7,7 @@
 
 /**
  * @class Scoreboard
- * @classdesc This class is responsible for the scoreboard.
+ * @classdesc This class is responsible to display the scoreboard and manage scores of the gamers.
  */
 export class Scoreboard {
 
@@ -24,9 +24,9 @@ export class Scoreboard {
 
     
     /**
-     * @description
+     * After name changed in the input field, this method is called.
+     * If the name is different from the current gamer, a new gamer is created.
      * @param {String} name - The name of the gamer.
-     * 
      */
     updatedName(name) {
         let previousGamer = this.currentGamer;
@@ -37,23 +37,33 @@ export class Scoreboard {
 
         if (previousGamer != this.currentGamer && previousGamer.score == 0) {
             this.removeGamer(previousGamer);
-            console.log(this.gamers);   
         }
 
         this.renderArray();
     }
 
+    /**
+     * Add a gamer to the list of gamers.
+     * @param {Gamer} gamer 
+     */
     addGamer(gamer) {
         this.gamers.push(gamer);
     }
 
+    /**
+     * Remove a gamer from the list of gamers.
+     * @param {Gamer} gamer
+     */
     removeGamer(gamer) {
         this.gamers.splice(this.gamers.indexOf(gamer), 1);
     }
 
+    /**
+     * Render the list of gamers in the table.
+     */
     renderArray() {
         let table = document.getElementById("scoreTable");
-        table.innerHTML = "";
+        table.innerHTML = ""; // Clear the table
         this.gamers.forEach((gamer, index) => {
             let row = table.insertRow();
             let cell1 = row.insertCell();
@@ -64,17 +74,30 @@ export class Scoreboard {
 
     }
 
+    /**
+     * Update the current gamer who is playing.
+     * @param {Gamer} gamer
+     */
     updateCurrentGamer(gamer) {
         this.currentGamer = gamer;
     }
 
+    /**
+     * Get the current gamer who is playing.
+     * @returns {Gamer} The current gamer.
+     */
     getCurrentGamer() {
         return this.currentGamer;
     }
 
+    /**
+     * Update the score of the current gamer in the scoreboard.
+     * @param {Number} score 
+     */
     updateScoreCurrentGamer(score) {
         let newScore = this.currentGamer.score + score;
         this.currentGamer.updateScore(newScore);
+
         // Update score of the gamer in the table gamers
         this.gamers.forEach((gamer, index) => {
             if (gamer.name == this.currentGamer.name) {
@@ -93,23 +116,44 @@ export class Scoreboard {
  * @classdesc This class is responsible for the gamer.
  */
 export class Gamer {
+    /**
+     * @constructor
+     * @param {String} name 
+     * @param {Number} score 
+     */
     constructor(name, score) {
         this.name = name;
         this.score = score;
     }   
 
+    /**
+     * Set the score of the gamer.
+     * @param {Number} score 
+     */
     updateScore(score) {
         this.score = score;
     }      
     
+    /**
+     * Set the name of the gamer.
+     * @param {String} name 
+     */
     updateName(name) {  
         this.name = name;
     }
 
+    /**
+     * Get the score of the gamer.
+     * @returns {Number} The score of the gamer.
+     */
     getScore() {
         return this.score;
     }
 
+    /**
+     * Get the name of the gamer.
+     * @returns {String} The name of the gamer.
+     */
     getName() {
         return this.name;
     }
