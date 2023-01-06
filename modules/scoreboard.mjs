@@ -1,68 +1,81 @@
-export class Gamer {
-    constructor(Name, Score){
-        this.name = Name;
-        this.score = Score;
-        this.gamers = []
-    }
+export class Scoreboard {
+    constructor() {
+        this.currentGamer = new Gamer("user", 0);
+        this.gamers = [];
+        this.gamers.push(this.currentGamer);
+
+      }
+
     
-    Scoreboard()
-    {
-        let alias = prompt("Entre ton nom", "User");
-        //let gamers = [];
-        //self.gamers
-        this.gamers.push( new Gamer(alias, 0));
-        //console.log(gamers);
-        //let game = new Gamer ("test", 0);
-        //let table = document.getElementById("scoreTable");
+    updatedName(name) {
+        let previousGamer = this.currentGamer;
+        if(name != this.currentGamer.name) {
+            console.log("updated");
+            this.currentGamer = new Gamer(name, 0);
+            this.addGamer(this.currentGamer);
+        }
 
-        //console.log(table);
-        //console.log(tableau);
+        if (previousGamer != this.currentGamer && previousGamer.score == 0) {
+            this.removeGamer(previousGamer);
+            console.log("removed");
+            console.log(this.gamers);   
+        }
+
         this.renderArray();
-
     }
 
-    addGamer()
-    {
-        
-    }
-    removeGamer(ev)
-    {
-        this.gamers.splice(ev.target.getAttribute("array-index"), 1);
-        renderArray();
+    addGamer(gamer) {
+        this.gamers.push(gamer);
     }
 
-    renderArray()
-    {
-        let tableau= document.getElementById("scoreTable");
-        //console.log(tableau);
-        tableau.innerText = "";
+    removeGamer(gamer) {
+        this.gamers.splice(this.gamers.indexOf(gamer), 1);
+    }
+
+    renderArray() {
+        let table = document.getElementById("scoreTable");
+        table.innerHTML = "";
         this.gamers.forEach((gamer, index) => {
-                let tableRow = document.createElement("tr");
-                let nameTd = document.createElement("td");
-                let scoreTd = document.createElement("td");
-                let rmvTd = document.createElement("td");
-                let rmvButton = document.createElement("button");
-                rmvButton.innerText = "delete";
-                rmvButton.setAttribute("array-index", index);
-                rmvButton.addEventListener("click", gamer.removeGamer);
-                rmvTd.appendChild(rmvButton);
-
-                nameTd.innerText = gamer.name;
-                scoreTd.innerText = gamer.score;
-
-                tableRow.appendChild(nameTd);
-                tableRow.appendChild(scoreTd);
-                tableRow.appendChild(rmvTd);
-                tableau.appendChild(tableRow);
-        
+            let row = table.insertRow();
+            let cell1 = row.insertCell();
+            let cell2 = row.insertCell();
+            cell1.innerHTML = gamer.name;
+            cell2.innerHTML = gamer.score;
         });
-        //console.log(tableau);
+
+    }
+
+    updateCurrentGamer(gamer) {
+        this.currentGamer = gamer;
+    }
+
+    getCurrentGamer() {
+        return this.currentGamer;
     }
 
 
-    UpdateScore()
-    {
-        
+}
+
+
+export class Gamer {
+    constructor(name, score) {
+        this.name = name;
+        this.score = score;
+    }   
+
+    updateScore(score) {
+        this.score = score;
+    }      
+    
+    updateName(name) {  
+        this.name = name;
     }
 
+    getScore() {
+        return this.score;
+    }
+
+    getName() {
+        return this.name;
+    }
 }

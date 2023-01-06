@@ -4,7 +4,7 @@ import { MoveDirection } from '/modules/enums.mjs'
 import { fillLevelsSelection, selectLevel, LevelManager } from '/modules/levelSelection.mjs'
 import { Timer } from '/modules/timer.mjs'
 import { TutorialControler } from '/modules/tutorialControler.mjs'
-import { Gamer } from '/modules/scoreboard.mjs'
+import { Scoreboard, Gamer } from '/modules/scoreboard.mjs'
 
 let canvas = document.getElementById('canvas');
 let difficultySlider = document.getElementById('difficulty-slider');
@@ -79,8 +79,22 @@ window.addEventListener("keydown", (event) => {
 });
 
 //let table = document.getElementById("scoreTable");
-let joueur = new Gamer("user", 0);
-joueur.Scoreboard();
+// let joueur = new Gamer("user", 0);
+// joueur.Scoreboard();
+
+let scoreboard = new Scoreboard();
+let inputName = document.getElementById("name");
+inputName.addEventListener("input", (event) => { 
+  console.log(event.target.value);
+  inputName.setAttribute('value', event.target.value);
+});
+
+let submitButton = document.getElementById("submit-name");
+submitButton.addEventListener("click", () => {
+  let value = inputName.value;
+  scoreboard.updatedName(value);
+});
+
 window.gamestate = gameState;
 gameState.playground.draw(ctx);
 

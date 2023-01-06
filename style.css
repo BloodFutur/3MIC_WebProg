@@ -26,6 +26,7 @@ main {
     min-height: 40vh;
 }
 
+
 aside {
     margin: 0 auto;
     float: left;
@@ -141,4 +142,9 @@ tr:nth-of-type(even) {
     padding: 30px;
     position: relative;
     text-align: justify;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: row;
 }
