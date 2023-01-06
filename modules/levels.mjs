@@ -1,7 +1,9 @@
+/**
+ * @fileoverview This file contains the blueprints for the levels.
+ */
 import { Square } from '/modules/enums.mjs';
 
 // Blueprint for the first level
-//
 const level1Blueprint = {
   structure:[[ Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall ],
             [ Square.Wall, Square.Destination, Square.Box, Square.Floor, Square.Player, Square.Wall ],
@@ -25,6 +27,7 @@ const level2Blueprint = {
   time: 23000,
 };
 
+// Blueprint for the third level
 const level3Blueprint = {
   structure: [
     [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall,],
@@ -40,6 +43,7 @@ const level3Blueprint = {
   time: 8000,
 }
 
+// Blueprint for the fourth level
 const level4Blueprint = {
   structure: [
     [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall,],
@@ -56,6 +60,7 @@ const level4Blueprint = {
   time: 3000,
 }
 
+// Blueprint for the fifth level
 const level5Blueprint = {
   structure: [
     [Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, Square.Wall, ],
@@ -72,6 +77,7 @@ const level5Blueprint = {
   time: 40000
 }
 
+// Array of blueprints for all levels
 export const levelsBlueprint = [
   level1Blueprint,
   level2Blueprint,

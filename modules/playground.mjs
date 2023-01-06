@@ -1,3 +1,7 @@
+/**
+ * @fileoverview This file contains the Playground class.
+ */
+
 import { Square, CanMove, MoveDirection } from '/modules/enums.mjs'
 import { Position, copyPosition } from '/modules/position.mjs'
 import { ForegroundTile, BackgroundTile } from '/modules/tiles.mjs'
@@ -18,6 +22,7 @@ export const generatePlayground = (levelBlueprint, canvasWidth, canvasHeight) =>
     x: NaN,
     y: NaN,
   };
+
   levelBlueprint.forEach((levelRow, indexRow) => {
     background.push([]);
     foreground.push([]);
